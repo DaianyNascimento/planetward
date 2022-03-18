@@ -31,6 +31,12 @@ app.use("/", index);
 const signup = require("./routes/signup.routes");
 app.use("/signup", signup);
 
+const login = require("./routes/login.routes");
+app.use(login);
+
+const profilepage = require("./routes/profilepage");
+app.use(profilepage);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
