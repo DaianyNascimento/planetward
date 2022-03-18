@@ -29,7 +29,7 @@ const index = require("./routes/index.routes");
 app.use("/", index);
 
 const signup = require("./routes/signup.routes");
-app.use("/signup", signup);
+app.use(signup);
 
 const login = require("./routes/login.routes");
 app.use(login);
