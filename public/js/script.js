@@ -1,7 +1,6 @@
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
-    console.log("planetward JS imported successfully!");
-  },
-  false
-);
+const main = () => {
+  console.log("planetward JS imported successfully!");
+}
+
+document.addEventListener("DOMContentLoaded", main, false);
+
