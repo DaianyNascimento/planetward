@@ -11,15 +11,16 @@
 .packing-list{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-content: center;
-    border: 1px solid red;
+    border: 1px solid green;
     height: 20vh;
     width: 60vw;
+    padding: 10px;
 }
 
 .packing-items {
-    width: 15%;
-    height: 80%;
+    width: 20%;
+    height: auto;
     cursor: pointer;
 }

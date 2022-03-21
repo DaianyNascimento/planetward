@@ -6,7 +6,7 @@ router.get("/launch", (req, res, next) => {
   res.render("launch");
 });
 
-// /* post launch page */
+/* post launch page */
 router.post("/launch", (req, res, next) => {
   res.render("launch");
 });
