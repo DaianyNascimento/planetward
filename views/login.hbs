@@ -1,11 +1,14 @@
 <h1>Login</h1>
 
 <form action="/login" method="post">
-<input type="username" name="username" value="" placeholder="username"/>
-<input type="password" name="password" value="" placeholder="password"/>
-<button type="submit">Login</button>
+   <input type="username" name="username" value="" placeholder="username" />
+   <input type="password" name="password" value="" placeholder="password" />
+   <button type="submit">Login</button>
 </form>
 
+<h2>Don't have an account yet?</h2>
+<a href="/signup">Create an account!</a>
+
 {{#if error}}
-   <h2>{{error}}</h2>
+<h2>{{error}}</h2>
 {{/if}}
