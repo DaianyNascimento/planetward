@@ -8,7 +8,8 @@ router.get("/launch", (req, res, next) => {
 
 /* post launch page */
 router.post("/launch", (req, res, next) => {
-  res.render("launch");
+    console.log(req.body);
+  res.redirect("/launch");
 });
 
 module.exports = router;
