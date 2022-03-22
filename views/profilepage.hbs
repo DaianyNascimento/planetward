@@ -12,4 +12,19 @@
         <button type="submit">Logout</button>
     </form>
 
+    <div>
+        {{#each allItems}}
+        <p>{{this.spacesuitQuantity}}</p>
+        <p>{{this.foodQuantity}}</p>
+        <p>{{this.oxygenQuantity}}</p>
+        <p>{{this.fuelQuantity}}</p>
+        <p>{{this.solarpanelQuantity}}</p>
+        <p>{{this.sproutQuantity}}</p>
+        <p>{{this.waterbottleQuantity}}</p>
+        <!-- <a href="/drones/{{this._id}}/edit">edit drone</a>
+    <form action="/drones/{{this._id}}/delete" method="post">
+        <button type="submit">delete drone</button>
+    </form> --->
+        {{/each}}
+    </div>
 </div>

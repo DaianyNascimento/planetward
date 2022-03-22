@@ -1,29 +1,42 @@
 <div class="credits-container">
   <p> Your credits: <span id="credits">100</span></p>
+  <p> Quantities: </p>
+  <p> Spacesuit: <span id="spacesuitQuantity">0</span></p>
+  <p> Food: <span id="foodQuantity">0</span></p>
+  <p> Oxygen: <span id="oxygenQuantity">0</span></p>
+  <p> Fuel: <span id="fuelQuantity">0</span></p>
+  <p> Solar Panel: <span id="solarpanelQuantity">0</span></p>
+  <p> Sprout: <span id="sproutQuantity">0</span></p>
+  <p> Water Bottle: <span id="waterbottleQuantity">0</span></p>
 </div>
 <div class="journey-container">
-  <h1>Start your journey</h1>
+  <h1>Start your journey {{ user.username }}</h1>
   <h2>Collect the things you will need!</h2>
 
   <div class="packing-list">
 
-    <img id="item-spacesuit" class="packing-items"src="/images/astronaut.png"/>
+    <img id="item-spacesuit" class="packing-items" src="/images/astronaut.png" />
 
     <img id="item-food" class="packing-items" src="/images/bar.png" />
 
     <img id="item-oxygen" class="packing-items" src="/images/oxygen-tank.png" />
 
+    <img id="item-fuel-station" class="packing-items" src="/images/fuel-station.png" />
+
+    <img id="item-solar-panel" class="packing-items" src="/images/solar-panel.png" />
+
+    <img id="item-sprout" class="packing-items" src="/images/sprout.png" />
+
+    <img id="item-water-bottle" class="packing-items" src="/images/water-bottle.png" />
+
   </div>
 
- <a href="/launch"><button id="launchBtn">Launch!</button></a>
+  <a href="/launch"><button id="launchBtn">Launch!</button></a>
 
 </div>
 
 <script src="/js/journeypagefunctions.js"></script>
 
-{{this.spacesuitQuantity}}
-
 <form action="/logout" method="post">
-    <button type="submit">Logout</button>
+  <button type="submit">Logout</button>
 </form>
-

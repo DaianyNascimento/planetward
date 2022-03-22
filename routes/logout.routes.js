@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { requiredLogin } = require("../middleware/authentication.js");
 
+/* Use authentication middleware */
 router.use("/logout", requiredLogin);
 
 router.get("/logout", (req, res, next) => {

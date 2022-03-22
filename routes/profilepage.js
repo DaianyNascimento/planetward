@@ -4,10 +4,13 @@ const express = require('express');
 const Item = require("../models/items.model");
 const mongoose = require("mongoose");
 
+/* Use authentication middleware */
 router.use("/profilepage", requiredLogin);
 
-router.get("/profilepage", (req, res, next) => {
-  res.render("profilepage");
+/* GET profile page */
+router.get("/profilepage", async (req, res, next) => {
+  const itemsFromDB = await Item.find();
+  res.render("profilepage", { allItems: itemsFromDB });
 });
 
 /* GET list of items */

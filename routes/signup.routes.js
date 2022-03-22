@@ -1,15 +1,17 @@
 const router = require("express").Router();
 const UserModel = require("../models/User.model");
 const bcrypt = require("bcryptjs");
-//const { genSalt } = require("bcryptjs"); 
 const { requiredLogout } = require("../middleware/authentication");
 
+/* Use authentication middleware */
 router.use("/signup", requiredLogout);
 
+/* GET signup page */
 router.get("/signup", (req, res, next) => {
     res.render("signup");
 });
 
+/* POST signup page */
 router.post("/signup", async (req, res, next) => {
     try {
         const { username, password } = req.body;
