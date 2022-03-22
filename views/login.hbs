@@ -1,14 +1,28 @@
-<h1>Login</h1>
+<!--parent body tag coming from layout -->
 
-<form action="/login" method="post">
-   <input type="username" name="username" value="" placeholder="username" />
-   <input type="password" name="password" value="" placeholder="password" />
-   <button type="submit">Login</button>
-</form>
+<img class="background-image" src="../images/2107.w026.n002.629B.p1.629.jpg">
+ <div class="container">
+     <div class="content">
+         <div class="menu">
+         <h1>Login</h1>
+         </div>
+  <div class="signup-form">
+      <form action="/login" method="post">
+         <label class="label">USERNAME</label>
+         <input class="input" type="username" name="username" value="" placeholder="username" />
+         <label class="label">PASSWORD</label>
+         <input class="input" type="password" name="password" value="" placeholder="password" />
+         <button class="btn" type="submit">Login</button>
+      </form>
+   </div>
+ <hr>
 
-<h2>Don't have an account yet?</h2>
-<a href="/signup">Create an account!</a>
+
+<a class="create-account-btn" href="/signup"> Don't have an account yet? Create an account!</a>
+
 
 {{#if error}}
 <h2>{{error}}</h2>
 {{/if}}
+</div>
+</div>

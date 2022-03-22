@@ -1,4 +1,6 @@
-<div class="signup-page">
+<!--parent body tag coming from layout -->
+
+  <img class="background-image" src="/images/946.jpg">
     <div class="container">
         <div class="content">
             <div class="menu">
@@ -7,18 +9,18 @@
             <!-- <img class="bg-img" src="/images/2731.jpg" alt=""> --->
             <div class="signup-form">
                 <form action="/signup" method="post">
-                    <label>USERNAME</label>
-                    <input name="username" type="text" placeholder="enter username here">
-                    <label>PASSWORD</label>
-                    <input name="password" type="password" placeholder="enter password here">
-                    <button type="submit">SIGN UP</button>
+                    <label class="label">USERNAME</label>
+                    <input class="input" name="username" type="text" placeholder="enter username here">
+                    <label class="label">PASSWORD</label>
+                    <input class="input" name="password" type="password" placeholder="enter password here">
+                    <button class="btn" type="submit">SIGN UP</button>
                 </form>
             </div>
             <hr>
+            
             {{#if error}}
             <h2>You already have an account!</h2>
-            <a href="/login">GO TO LOGIN</a>
+            <a class="btn" href="/login">GO TO LOGIN</a>
             {{/if}}
         </div>
     </div>
-</div>
