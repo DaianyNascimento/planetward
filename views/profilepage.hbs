@@ -1,16 +1,21 @@
-<img id="background-image" src="/images/2731.jpg">
-<div class="profile-container">
-    <h1>Your profile</h1>
+<!--parent body tag coming from layout -->
 
-    <a class="start-btn" href="/journeypage">Start your journey</a>
-    <a class="start-btn" href="/items/{{this._id}}/edit">Edit your journey</a>
-    <a class="start-btn" href=" ">Delete your journey</a>
+<img class="background-image" src="/images/2731.jpg">
+<div class="container">
+    <div class="profile-content">
+        <h1>Your profile</h1>
+
+        <a class="profile-btn" href="/journeypage">Start your journey</a>
+        <a class="profile-btn" href="/items/{{this._id}}/edit">Edit your journey</a>
+        <a class="profile-btn" href=" ">Delete your journey</a>
     <!-- <form action="/item/{{this._id}}/delete" method="post">
         <button type="submit">Delete item</button>
     </form> --->
     <form action="/logout" method="post">
         <button type="submit">Logout</button>
     </form>
+
+</div>
 
     <div>
         {{#each allItems}}
@@ -27,4 +32,5 @@
     </form> --->
         {{/each}}
     </div>
+
 </div>

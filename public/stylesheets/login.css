@@ -1,0 +1,26 @@
+.create-account-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20%;
+    padding: 2%;
+    font-size: 17px;
+    font-weight: 300;
+    color: #fff;
+    opacity: 1;
+    background-color: rgba(10, 131, 255, 0.7);
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Righteous";
+}
+
+.create-account-btn:hover {
+    background-color: transparent;
+    transition: 0.5s;
+    box-shadow: inset 0 0 50px #fff, /* inner white */ inset 20px 0 90px #f0f,
+        /*inner left magenta short  */ inset -20px 0 50px #0ff, /*inner right cyan short  */ inset 20px 0 100px #f0f,
+        /*inner left magenta broad  */ inset -20px 0 100px #0ff, /*inner right cyan broad  */ 0 0 20px #fff,
+        /* outer white  */ -10px 0 50px #f0f, /* outer left magenta  */ 10px 0 50px #0ff; /*outer right cyan */
+}
