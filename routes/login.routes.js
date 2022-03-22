@@ -3,6 +3,7 @@ const UserModel = require("../models/User.model");
 const bcrypt = require("bcryptjs");
 const { requiredLogout } = require("../middleware/authentication");
 
+/* Use authentication middleware */
 router.use("/login", requiredLogout);
 
 /* GET login page */
@@ -30,6 +31,5 @@ router.post("/login", async (req, res, next) => {
         res.render("login", { error: "Wrong username or password" });
     }
 });
-
 
 module.exports = router;
