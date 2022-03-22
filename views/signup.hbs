@@ -1,11 +1,24 @@
-<h1>Signup:</h1>
-<form action="/signup" method="post">
-    <input name="username" type="text" placeholder="Please enter username">
-    <input name="password" type="password" placeholder="Please enter password">
-    <button type="submit">Submit!</button>
-</form>
-
-{{#if error}}
-<h2>You already have an account!</h2>
-<a href="/login">Go to login</a>
-{{/if}}
+<div class="signup-page">
+    <div class="container">
+        <div class="content">
+            <div class="menu">
+                <h1>SIGN UP</h1>
+            </div>
+            <!-- <img class="bg-img" src="/images/2731.jpg" alt=""> --->
+            <div class="signup-form">
+                <form action="/signup" method="post">
+                    <label>USERNAME</label>
+                    <input name="username" type="text" placeholder="enter username here">
+                    <label>PASSWORD</label>
+                    <input name="password" type="password" placeholder="enter password here">
+                    <button type="submit">SIGN UP</button>
+                </form>
+            </div>
+            <hr>
+            {{#if error}}
+            <h2>You already have an account!</h2>
+            <a href="/login">GO TO LOGIN</a>
+            {{/if}}
+        </div>
+    </div>
+</div>
