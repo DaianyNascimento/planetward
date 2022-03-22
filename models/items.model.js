@@ -1,19 +1,22 @@
 const { Schema, model } = require("mongoose");
 
-const itemSchema = new Schema(
+const packinglistSchema = new Schema(
   {
-    itemName: {
-      type: String,
-      unique: true,
-      required: true,
-    },
-    itemQuantity: {
+    spacesuitQuantity: {
     type: Number,
     required: true,
     },
-    },
+    foodQuantity: {
+      type: Number,
+      required: true,
+      },
+    oxygenQuantity: {
+        type: Number,
+        required: true,
+        },
+  },
 );
 
-const Item = model("Item", itemSchema);
+const packinglist = model("Item", packinglistSchema);
 
-module.exports = Item;
+module.exports = packinglist;
