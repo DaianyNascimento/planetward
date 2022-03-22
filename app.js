@@ -35,17 +35,17 @@ app.use(signup);
 const login = require("./routes/login.routes");
 app.use(login);
 
+const logout = require("./routes/logout.routes");
+app.use(logout);
+
 const profilepage = require("./routes/profilepage");
 app.use(profilepage);
-
 
 const journeypage = require("./routes/journey.routes");
 app.use(journeypage);
 
-
 const launch = require("./routes/launch.routes");
 app.use(launch);
-
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
