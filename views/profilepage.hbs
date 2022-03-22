@@ -4,20 +4,15 @@
 <div class="container">
     <div class="profile-content">
         <h1>Your profile</h1>
-
         <a class="profile-btn" href="/journeypage">Start your journey</a>
         <a class="profile-btn" href="/items/{{this._id}}/edit">Edit your journey</a>
         <a class="profile-btn" href=" ">Delete your journey</a>
-    <!-- <form action="/item/{{this._id}}/delete" method="post">
-        <button type="submit">Delete item</button>
-    </form> --->
-    <form action="/logout" method="post">
-        <button type="submit">Logout</button>
-    </form>
-
-</div>
-
-    <div>
+   <form action="/logout" method="post">
+            <button class="logout-btn" type="submit">Logout</button>
+        </form>
+   </div>
+   
+<div>
         {{#each allItems}}
         <p>{{this.spacesuitQuantity}}</p>
         <p>{{this.foodQuantity}}</p>
@@ -32,5 +27,4 @@
     </form> --->
         {{/each}}
     </div>
-
-</div>
+        </div>
