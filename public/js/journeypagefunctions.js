@@ -31,7 +31,6 @@ document.addEventListener(
     const sprout = document.querySelector("#item-sprout");
     const waterbottle = document.querySelector("#item-water-bottle");
     const launchBtn = document.querySelector("#launchBtn");
-    // const nrOfSpacesuit = document.querySelector("#nrOfSpacesuit");
 
     /* DEFAULT items cost:
     spacesuit: 10 credits,
@@ -138,7 +137,7 @@ document.addEventListener(
           'Content-Type': 'application/json'
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
-        redirect: 'follow', // manual, *follow, error
+        redirect: 'manual', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: JSON.stringify(packingList) // body data type must match "Content-Type" header
       });
