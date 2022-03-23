@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const mongoose = require("mongoose");
 const ItemModel = require("../models/items.model");
 const UserModel = require("../models/User.model");
 const { requiredLogin } = require("../middleware/authentication");
@@ -56,7 +55,6 @@ router.post("/launch", async (req, res, next) => {
 module.exports = router;
 
   /* need at least :
-
     1 spacesuit - 10
     2 oxygen - 20
     4 food - 20
@@ -64,5 +62,4 @@ module.exports = router;
     3 fuel - 30
 
     88 
-
     */

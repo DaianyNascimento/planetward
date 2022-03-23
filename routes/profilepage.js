@@ -1,23 +1,16 @@
 const router = require("express").Router();
+const mongoose = require("mongoose");
 const ItemModel = require("../models/items.model");
 const { requiredLogin } = require("../middleware/authentication");
 
 /* Use authentication middleware */
 router.use("/profilepage", requiredLogin);
 
-/* GET profile page */
+/* GET profile page and the items from db*/
 router.get("/profilepage", async (req, res, next) => {
   const itemsFromDB = await ItemModel.find();
-
-
   res.render("profilepage", { allItems: itemsFromDB });
 });
-
-/* GET list of items */
-/*router.get("/profilepage", async (req, res, next) => {
-  const itemsFromDB = await Item.find();
-  res.render("profilepage", { allItems:itemsFromDB }); // add allItems tag in the profilepage.hbs to show the list of items
-});*/
 
 /* Edit Item */
 /*router.get('/item/:id/edit', async (req, res, next) => {
@@ -33,15 +26,13 @@ router.get("/profilepage", async (req, res, next) => {
   res.redirect("/profilepage");
 });*/
 
-/* Delete item - Question: Delete journey or delete item? */
-/*router.post('/item/:id/delete', async (req, res, next) => {
+/* DELETE items */
+router.post('/item/:id/delete', async (req, res, next) => {
   const itemId = mongoose.Types.ObjectId(req.params.id);
-  console.log("itemId to delete", itemId);
+  console.log("item id to delete", itemId);
 
-  await Item.findByIdAndDelete(itemId);
+  await ItemModel.findByIdAndDelete(itemId);
   console.log("Successfully deleted");
-
-  res.redirect("/profilepage");
-});*/
+});
 
 module.exports = router;
