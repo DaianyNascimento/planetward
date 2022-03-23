@@ -29,7 +29,8 @@ const packinglistSchema = new Schema(
     waterbottleQuantity: {
       type: Number,
       required: true,
-    }
+    },
+    userId: { type: Schema.Types.ObjectId, ref: 'User' },
   },
   {
     timestamps: true,
