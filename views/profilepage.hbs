@@ -7,6 +7,7 @@
         <a class="profile-btn" href="/journeypage">Start your journey</a>
         <a class="profile-btn" href="/items/{{this._id}}/edit">Edit your journey</a>
         <a class="profile-btn" href=" ">Delete your journey</a>
+        
    <form action="/logout" method="post">
             <button class="logout-btn" type="submit">Logout</button>
         </form>
@@ -21,10 +22,7 @@
         <p>{{this.solarpanelQuantity}}</p>
         <p>{{this.sproutQuantity}}</p>
         <p>{{this.waterbottleQuantity}}</p>
-        <!-- <a href="/drones/{{this._id}}/edit">edit drone</a>
-    <form action="/drones/{{this._id}}/delete" method="post">
-        <button type="submit">delete drone</button>
-    </form> --->
+        
         {{/each}}
     </div>
         </div>

@@ -1,3 +1,4 @@
+const Item = require("../models/items.model");
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema(
@@ -8,10 +9,11 @@ const userSchema = new Schema(
       required: true,
     },
     password: {
-    type: String,
-    required: true,
+      type: String,
+      required: true,
+    },
+    items: { type: Schema.Types.ObjectId, ref: 'Item' },
   },
-},
   {
     timestamps: true,
   }
