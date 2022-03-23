@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const Item = require("../models/items.model");
+const mongoose = require("mongoose");
+const ItemModel = require("../models/items.model");
+const UserModel = require("../models/User.model");
 const { requiredLogin } = require("../middleware/authentication");
 
 /* Use authentication middleware */
@@ -14,7 +16,7 @@ router.get("/launch", async (req, res, next) => {
 router.post("/launch", async (req, res, next) => {
   console.log(req.body);
 
-  const userAddedItem = new Item({
+  const userAddedItem = new ItemModel({
     spacesuitQuantity: req.body.spacesuitQuantity,
     foodQuantity: req.body.foodQuantity,
     oxygenQuantity: req.body.oxygenQuantity,
@@ -22,9 +24,13 @@ router.post("/launch", async (req, res, next) => {
     solarpanelQuantity: req.body.solarpanelQuantity,
     sproutQuantity: req.body.sproutQuantity,
     waterbottleQuantity: req.body.waterbottleQuantity,
+    userId: req.session.currentUser._id,
   });
 
   await userAddedItem.save();
+
+  const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
+  const currentUser = await UserModel.findOneAndUpdate({ userId: req.session.currentUser._id }, { items: currentItem._id }, { new: true });
 
   res.redirect("/launch");
 });

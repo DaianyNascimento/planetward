@@ -1,15 +1,15 @@
 const router = require("express").Router();
+const ItemModel = require("../models/items.model");
 const { requiredLogin } = require("../middleware/authentication");
-const express = require('express');
-const Item = require("../models/items.model");
-const mongoose = require("mongoose");
 
 /* Use authentication middleware */
 router.use("/profilepage", requiredLogin);
 
 /* GET profile page */
 router.get("/profilepage", async (req, res, next) => {
-  const itemsFromDB = await Item.find();
+  const itemsFromDB = await ItemModel.find();
+
+
   res.render("profilepage", { allItems: itemsFromDB });
 });
 
