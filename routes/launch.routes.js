@@ -3,7 +3,7 @@ const Item = require("../models/items.model");
 const { requiredLogin } = require("../middleware/authentication");
 
 /* Use authentication middleware */
-// router.use("/launch", requiredLogin);
+router.use("/launch", requiredLogin);
 
 /* GET launch page */
 router.get("/launch", async (req, res, next) => {

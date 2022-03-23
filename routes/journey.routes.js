@@ -3,7 +3,7 @@ const UserModel = require("../models/User.model");
 const { requiredLogin } = require("../middleware/authentication");
 
 /* Use authentication middleware */
-// router.use("/journeypage", requiredLogin);
+router.use("/journeypage", requiredLogin);
 
 /* GET journey page */
 router.get("/journeypage", async (req, res, next) => {
