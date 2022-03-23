@@ -16,23 +16,30 @@ const favicon = require("serve-favicon");
 
 // ℹ️ global package used to `normalize` paths amongst different operating systems
 // https://www.npmjs.com/package/path
-const path = require("path");
 
+const path = require("path");
+const MongoStore = require('connect-mongo');
 // Middleware configuration
 module.exports = (app) => {
   app.set("trust proxy", 1);
-
+  
+  const MONGO_URI = process.env.MONGODB_URI || "mongodb://localhost/planetward";
   app.use(
     session({
       secret: process.env.SESSION_SECRET,
       resave: false,
-      saveUninitialized: true,
+      saveUninitialized: false,
       cookie: {
         sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
         secure: process.env.NODE_ENV === "production",
         httpOnly: true,
-        maxAge: 60000000,
+        maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
+        // store: store,
       },
+      store: MongoStore.create({
+        mongoUrl: MONGO_URI
+      })
+  
     })
   );
   
