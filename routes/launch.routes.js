@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const mongoose = require("mongoose");
 const ItemModel = require("../models/items.model");
 const UserModel = require("../models/User.model");
 const { requiredLogin } = require("../middleware/authentication");
@@ -8,21 +7,21 @@ const { requiredLogin } = require("../middleware/authentication");
 router.use("/launch", requiredLogin);
 
 /* GET launch page */
-router.get("/launch", async (req, res, next) => {
+/* router.get("/launch", async (req, res, next) => {
   const responeFromDb = await userAddedItem.find()
 
-  
-if(req.body.spacesuitQuantity >= 1 
-  && req.body.foodQuantity >= 4
-  && req.body.oxygenQuantity >= 2
-  && req.body.fuelQuantity >= 3
-  && req.body.waterbottleQuantity >= 4
-  ){
+
+  if (req.body.spacesuitQuantity >= 1
+    && req.body.foodQuantity >= 4
+    && req.body.oxygenQuantity >= 2
+    && req.body.fuelQuantity >= 3
+    && req.body.waterbottleQuantity >= 4
+  ) {
     res.redirect("/succes")
   } else {
     res.redirect("/failure")
   }
-});
+});*/
 
 /* POST launch page */
 router.post("/launch", async (req, res, next) => {
@@ -41,6 +40,10 @@ router.post("/launch", async (req, res, next) => {
 
   await userAddedItem.save();
 
+  const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
+  const currentUser = await UserModel.findOneAndUpdate({ userId: req.session.currentUser._id }, { items: currentItem._id }, { new: true });
+
+  res.redirect("/launch");
 
   /* need at least :
 
@@ -54,18 +57,12 @@ router.post("/launch", async (req, res, next) => {
 
     */
 
-  res.render("success");
+  //res.render("success");
 });
 
 
 router.get("/success", (req, res, next) => {
   res.render("success");
-
-  const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
-  const currentUser = await UserModel.findOneAndUpdate({ userId: req.session.currentUser._id }, { items: currentItem._id }, { new: true });
-
-  res.redirect("/launch");
-
 });
 
 module.exports = router;

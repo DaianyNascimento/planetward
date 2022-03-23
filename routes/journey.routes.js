@@ -7,13 +7,9 @@ router.use("/journeypage", requiredLogin);
 
 /* GET journey page */
 router.get("/journeypage", async (req, res, next) => {
-  // const user = await UserModel.findOne({ username: req.session.currentUser.username });
-  res.render("journeypage");
-  // { user }
+  const user = await UserModel.findOne({ username: req.session.currentUser.username });
+  //console.log(user.username);
+  res.render("journeypage", { username: user.username });
 });
-
-// router.post("/journeypage", (req, res, next) => {
-//   res.render("journeypage");
-// });
 
 module.exports = router;

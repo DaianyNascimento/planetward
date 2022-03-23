@@ -47,7 +47,7 @@ app.use(journeypage);
 const launch = require("./routes/launch.routes");
 app.use(launch);
 
-// const success = require("./routes/succes.routes");
+// const success = require("./routes/success.routes");
 // app.use(success);
 
 const failure = require("./routes/failure.routes");
