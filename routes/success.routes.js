@@ -5,7 +5,7 @@ const { requiredLogin } = require("../middleware/authentication");
 router.use("/success", requiredLogin);
 
 /* GET home page */
-router.get("/success", requiredLogin, (req, res, next) => {
+router.get("/success", (req, res, next) => {
   res.render("success");
 });
 

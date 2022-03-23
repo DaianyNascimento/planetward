@@ -25,6 +25,7 @@ router.post("/login", async (req, res, next) => {
             throw Error("Password incorrect");
         }
         req.session.currentUser = user;
+        console.log(req.session.currentUser, "<<<< current user");
         res.redirect("/profilepage");
     }
     catch (err) {
