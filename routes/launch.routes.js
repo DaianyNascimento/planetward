@@ -9,7 +9,19 @@ router.use("/launch", requiredLogin);
 
 /* GET launch page */
 router.get("/launch", async (req, res, next) => {
-  res.render("launch");
+  const responeFromDb = await userAddedItem.find()
+
+  
+if(req.body.spacesuitQuantity >= 1 
+  && req.body.foodQuantity >= 4
+  && req.body.oxygenQuantity >= 2
+  && req.body.fuelQuantity >= 3
+  && req.body.waterbottleQuantity >= 4
+  ){
+    res.redirect("/succes")
+  } else {
+    res.redirect("/failure")
+  }
 });
 
 /* POST launch page */
@@ -29,10 +41,31 @@ router.post("/launch", async (req, res, next) => {
 
   await userAddedItem.save();
 
+
+  /* need at least :
+
+    1 spacesuit - 10
+    2 oxygen - 20
+    4 food - 20
+    4 water - 8 
+    3 fuel - 30
+
+    88 
+
+    */
+
+  res.render("success");
+});
+
+
+router.get("/success", (req, res, next) => {
+  res.render("success");
+
   const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
   const currentUser = await UserModel.findOneAndUpdate({ userId: req.session.currentUser._id }, { items: currentItem._id }, { new: true });
 
   res.redirect("/launch");
+
 });
 
 module.exports = router;
