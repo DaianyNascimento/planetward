@@ -2,33 +2,37 @@ const { Schema, model } = require("mongoose");
 
 const packinglistSchema = new Schema(
   {
+    credits: {
+      type: Number,
+      unique: true,
+    },
     spacesuitQuantity: {
       type: Number,
-      default: 0,
+      unique: true,
     },
     foodQuantity: {
       type: Number,
-      default: 0,
+      unique: true,
     },
     oxygenQuantity: {
       type: Number,
-      default: 0,
+      unique: true,
     },
     fuelQuantity: {
       type: Number,
-      default: 0,
+      unique: true,
     },
     solarpanelQuantity: {
       type: Number,
-      default: 0,
+      unique: true,
     },
     sproutQuantity: {
       type: Number,
-      default: 0,
+      unique: true,
     },
     waterbottleQuantity: {
       type: Number,
-      default: 0,
+      unique: true,
     },
     userId: { type: Schema.Types.ObjectId, ref: 'User' },
   },

@@ -1,28 +1,31 @@
 <!--parent body tag coming from layout -->
 
 <img class="background-image" src="/images/2731.jpg">
+<nav>
+    <form action="/logout" method="post">
+        <button class="navbar-logout-btn" type="submit">Logout</button>
+    </form>
+</nav>
 <div class="container">
-    <div class="profile-content">
+    <!-- <div class="profile-content"> --->
+    <div>
         <h1>Your profile</h1>
         <a class="profile-btn" href="/journeypage">Start your journey</a>
-        <a class="profile-btn" href="/items/{{this._id}}/edit">Edit your journey</a>
-        <a class="profile-btn" href=" ">Delete your journey</a>
-        
-   <form action="/logout" method="post">
-            <button class="logout-btn" type="submit">Logout</button>
+        <p class="profile-btn">See your items: </p>
+        <p>Spacesuit quantity: {{currentItem.spacesuitQuantity}}</p>
+        <p>Food quantity: {{currentItem.foodQuantity}}</p>
+        <p>Oxygen quantity: {{currentItem.oxygenQuantity}}</p>
+        <p>Fuel quantity: {{currentItem.fuelQuantity}}</p>
+        <p>Solar panel quantity: {{currentItem.solarpanelQuantity}}</p>
+        <p>Sprout quantity: {{currentItem.sproutQuantity}}</p>
+        <p>Water Bottle: {{currentItem.waterbottleQuantity}}</p>
+        <a class="profile-btn" href="/items/{{currentItem._id}}/edit">Edit items</a>
+        <form action="/item/{{currentItem.userId}}/delete" method="post">
+            <button class="profile-btn" type="submit">Delete items</button>
         </form>
-   </div>
-   
-<div>
-        {{#each allItems}}
-        <p>{{this.spacesuitQuantity}}</p>
-        <p>{{this.foodQuantity}}</p>
-        <p>{{this.oxygenQuantity}}</p>
-        <p>{{this.fuelQuantity}}</p>
-        <p>{{this.solarpanelQuantity}}</p>
-        <p>{{this.sproutQuantity}}</p>
-        <p>{{this.waterbottleQuantity}}</p>
-        
-        {{/each}}
     </div>
-        </div>
+
+    {{#if error}}
+    <h2>{{error}}</h2>
+    {{/if}}
+</div>

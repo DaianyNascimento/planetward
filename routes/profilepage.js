@@ -1,38 +1,44 @@
 const router = require("express").Router();
+const mongoose = require("mongoose");
 const ItemModel = require("../models/items.model");
 const { requiredLogin } = require("../middleware/authentication");
 
 /* Use authentication middleware */
 router.use("/profilepage", requiredLogin);
 
-/* GET profile page */
+/* GET profile page and the current item from db*/
 router.get("/profilepage", async (req, res, next) => {
-  const itemsFromDB = await ItemModel.find();
-
-
-  res.render("profilepage", { allItems: itemsFromDB });
+  //console.log(req.session.currentUser);
+  const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
+  //console.log(currentItem);
+  res.render("profilepage", { currentItem: currentItem });
 });
 
-/* GET list of items */
-/*router.get("/profilepage", async (req, res, next) => {
-  const itemsFromDB = await Item.find();
-  res.render("profilepage", { allItems:itemsFromDB }); // add allItems tag in the profilepage.hbs to show the list of items
-});*/
-
-/* Edit Item */
-/*router.get('/item/:id/edit', async (req, res, next) => {
+/* GET edit Item */
+router.get('/items/:id/edit', async (req, res, next) => {
   const itemId = mongoose.Types.ObjectId(req.params.id);
-  const item = await Item.findById(itemId);
-  res.render("items/edit", { item }); // not working yet - where edit items?
-});*/
+  const items = await ItemModel.findById(itemId);
+  //console.log(items);
+  res.render("journeypage", { items });
+});
 
-/* Submit edited item */
-/*router.post('/item/:id/edit', async (req, res, next) => {
+/* POST edited item */
+router.post('/items/:id/edit', async (req, res, next) => {
   const itemId = mongoose.Types.ObjectId(req.params.id);
-  await Item.findByIdAndUpdate(itemId, { ...req.body });
+  //console.log(">>> item id to update", itemId);
+  console.log(req.params);
+  await ItemModel.findByIdAndUpdate(itemId, { ...req.body });
   res.redirect("/profilepage");
-});*/
+});
 
+/* DELETE items */
+router.post('/item/:id/delete', async (req, res, next) => {
+  const itemId = mongoose.Types.ObjectId(req.params.id);
+  console.log("item id to delete", itemId);
 
+  await ItemModel.deleteMany({ userId: { $in: itemId } });
+  console.log("Successfully deleted");
+  res.redirect("/profilepage");
+});
 
 module.exports = router;
