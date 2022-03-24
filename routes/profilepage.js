@@ -8,8 +8,11 @@ router.use("/profilepage", requiredLogin);
 
 /* GET profile page and the items from db*/
 router.get("/profilepage", async (req, res, next) => {
-  const itemsFromDB = await ItemModel.find();
-  res.render("profilepage", { allItems: itemsFromDB });
+  //console.log(req.session.currentUser);
+  const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
+
+  console.log(currentItem);
+  res.render("profilepage", { currentItem: currentItem });
 });
 
 /* Edit Item */

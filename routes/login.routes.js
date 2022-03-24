@@ -15,17 +15,17 @@ router.get("/login", (req, res, next) => {
 router.post("/login", async (req, res, next) => {
     try {
         const user = await UserModel.findOne({ username: req.body.username });
-        console.log(user);
+        //console.log(user);
         const hashFromDb = user.password;
-        console.log(hashFromDb);
+        //console.log(hashFromDb);
         const passwordCorrect = await bcrypt.compare(req.body.password, hashFromDb);
-        console.log(passwordCorrect ? "Yes" : "No");
+        //console.log(passwordCorrect ? "Yes" : "No");
 
         if (!passwordCorrect) {
             throw Error("Password incorrect");
         }
         req.session.currentUser = user;
-        console.log(req.session.currentUser, "<<<< current user");
+        //console.log(req.session.currentUser, "<<<< current user");
         res.redirect("/profilepage");
     }
     catch (err) {
