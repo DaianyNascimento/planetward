@@ -16,44 +16,44 @@
       <div class="item-container">
         <img id="item-spacesuit" class="packing-items" src="/images/astronaut.png" />
         <label for="title">Spacesuit:</label>
-        <input type="text" name="spacesuitQuantity" id="spacesuitQuantity" value="{{items.spacesuitQuantity}}"
-          placeholder="spacesuit quantity" />
+        <input type="number" name="spacesuitQuantity" id="spacesuitQuantity" value="{{items.spacesuitQuantity}}"
+          placeholder="spacesuit quantity" min="0" />
       </div>
       <div class="item-container">
         <img id="item-food" class="packing-items" src="/images/bar.png" />
         <label for="title">Food:</label>
-        <input type="text" name="foodQuantity" id="foodQuantity" value="{{items.foodQuantity}}"
-          placeholder="food quantity" />
+        <input type="number" name="foodQuantity" id="foodQuantity" value="{{items.foodQuantity}}"
+          placeholder="food quantity" min="0" />
       </div>
       <div class="item-container">
         <img id="item-oxygen" class="packing-items" src="/images/oxygen-tank.png" />
         <label for="title">Oxygen:</label>
-        <input type="text" name="oxygenQuantity" id="oxygenQuantity" value="{{items.oxygenQuantity}}"
-          placeholder="oxygen quantity" />
+        <input type="number" name="oxygenQuantity" id="oxygenQuantity" value="{{items.oxygenQuantity}}"
+          placeholder="oxygen quantity" min="0" />
       </div>
       <div class="item-container">
         <img id="item-fuel-station" class="packing-items" src="/images/fuel-station.png" />
         <label for="title">Fuel:</label>
-        <input type="text" name="fuelQuantity" id="fuelQuantity" value="{{items.fuelQuantity}}"
-          placeholder="fuel quantity" />
+        <input type="number" name="fuelQuantity" id="fuelQuantity" value="{{items.fuelQuantity}}"
+          placeholder="fuel quantity" min="0" />
       </div>
       <div class="item-container">
         <img id="item-solar-panel" class="packing-items" src="/images/solar-panel.png" />
         <label for="title">Solar Panel:</label>
-        <input type="text" name="solarpanelQuantity" id="solarpanelQuantity" value="{{items.solarpanelQuantity}}"
-          placeholder="solar panel quantity" />
+        <input type="number" name="solarpanelQuantity" id="solarpanelQuantity" value="{{items.solarpanelQuantity}}"
+          placeholder="solar panel quantity" min="0" />
       </div>
       <div class="item-container">
         <img id="item-sprout" class="packing-items" src="/images/sprout.png" />
         <label for="title">Seeds:</label>
-        <input type="text" name="sproutQuantity" id="sproutQuantity" value="{{items.sproutQuantity}}"
-          placeholder="sprout quantity" />
+        <input type="number" name="sproutQuantity" id="sproutQuantity" value="{{items.sproutQuantity}}"
+          placeholder="sprout quantity" min="0" />
       </div>
       <div class="item-container">
         <img id="item-water-bottle" class="packing-items" src="/images/water-bottle.png" />
         <label for="title">Water bottle:</label>
-        <input type="text" name="waterbottleQuantity" id="waterbottleQuantity" value="{{items.waterbottleQuantity}}"
-          placeholder="water bottle quantity" />
+        <input type="number" name="waterbottleQuantity" id="waterbottleQuantity" value="{{items.waterbottleQuantity}}"
+          placeholder="water bottle quantity" min="0" />
       </div>
     </div>
     <button class="btn" id="editBtn" type="submit">Update items!</button>

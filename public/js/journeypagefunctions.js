@@ -19,6 +19,19 @@ let packingList = {
   waterbottleQuantity: 0
 }
 
+function updateValues(itemQuantity, itemQuantityElement) {
+  const oldValue = packingList[itemQuantity];
+  packingList[itemQuantity] = Number(itemQuantityElement.value);
+  const update = (100 - (spacesuitQuantityElem.value * 10) - (oxygenQuantityElem.value * 10) - (foodQuantityElem.value * 5) - (fuelQuantityElem.value * 10) - (solarpanelQuantityElem.value * 20) - (sproutQuantityElem.value * 5) - (waterbottleQuantityElem.value * 2));
+  if (update >= 0) {
+    packingList.credits = update;
+    creditsElem.innerText = packingList.credits;
+  } else {
+    alert("You do not have enough credits for this.")
+    itemQuantityElement.value = oldValue;
+  }
+}
+
 document.addEventListener(
   "DOMContentLoaded",
   (event) => {
@@ -43,87 +56,66 @@ document.addEventListener(
     */
 
     spacesuit.addEventListener("click", () => {
-      if (packingList.credits >= 10) {
-        packingList.credits -= 10;
-        creditsElem.innerText = packingList.credits;
-        packingList.spacesuitQuantity += 1;
-        spacesuitQuantityElem.value = packingList.spacesuitQuantity;
-        console.log(packingList);
-      } else {
-        alert("You do not have enough credits for this.")
-      }
+      spacesuitQuantityElem.value = Number(spacesuitQuantityElem.value) + 1;
+      updateValues("spacesuitQuantity", spacesuitQuantityElem);
+    });
+
+    spacesuitQuantityElem.addEventListener("change", () => {
+      updateValues("spacesuitQuantity", spacesuitQuantityElem);
     });
 
     oxygen.addEventListener("click", () => {
-      if (packingList.credits >= 10) {
-        packingList.credits -= 10;
-        creditsElem.innerText = packingList.credits;
-        packingList.oxygenQuantity += 1;
-        oxygenQuantityElem.value = packingList.oxygenQuantity;
-        console.log(packingList);
-      } else {
-        alert("You do not have enough credits for this.")
-      }
+      oxygenQuantityElem.value = Number(oxygenQuantityElem.value) + 1;
+      updateValues("oxygenQuantity", oxygenQuantityElem);
+    });
+
+    oxygenQuantityElem.addEventListener("change", () => {
+      updateValues("oxygenQuantity", oxygenQuantityElem);
     });
 
     food.addEventListener("click", () => {
-      if (packingList.credits >= 5) {
-        packingList.credits -= 5;
-        creditsElem.innerText = packingList.credits;
-        packingList.foodQuantity += 1;
-        foodQuantityElem.value = packingList.foodQuantity;
-        console.log(packingList);
-      } else {
-        alert("You do not have enough credits for this.")
-      }
+      foodQuantityElem.value = Number(foodQuantityElem.value) + 1;
+      updateValues("foodQuantity", foodQuantityElem);
+    });
+
+    foodQuantityElem.addEventListener("change", () => {
+      updateValues("foodQuantity", foodQuantityElem);
     });
 
     fuel.addEventListener("click", () => {
-      if (packingList.credits >= 10) {
-        packingList.credits -= 10;
-        creditsElem.innerText = packingList.credits;
-        packingList.fuelQuantity += 1;
-        fuelQuantityElem.value = packingList.fuelQuantity;
-        console.log(packingList);
-      } else {
-        alert("You do not have enough credits for this.")
-      }
+      fuelQuantityElem.value = Number(fuelQuantityElem.value) + 1;
+      updateValues("fuelQuantity", fuelQuantityElem);
+    });
+
+    fuelQuantityElem.addEventListener("change", () => {
+      updateValues("fuelQuantity", fuelQuantityElem);
     });
 
     solarpanel.addEventListener("click", () => {
-      if (packingList.credits >= 20) {
-        packingList.credits -= 20;
-        creditsElem.innerText = packingList.credits;
-        packingList.solarpanelQuantity += 1;
-        solarpanelQuantityElem.value = packingList.solarpanelQuantity;
-        console.log(packingList);
-      } else {
-        alert("You do not have enough credits for this.")
-      }
+      solarpanelQuantityElem.value = Number(solarpanelQuantityElem.value) + 1;
+      updateValues("solarpanelQuantity", solarpanelQuantityElem);
+    });
+
+    solarpanelQuantityElem.addEventListener("change", () => {
+      updateValues("solarpanelQuantity", solarpanelQuantityElem);
     });
 
     sprout.addEventListener("click", () => {
-      if (packingList.credits >= 5) {
-        packingList.credits -= 5;
-        creditsElem.innerText = packingList.credits;
-        packingList.sproutQuantity += 1;
-        sproutQuantityElem.value = packingList.sproutQuantity;
-        console.log(packingList);
-      } else {
-        alert("You do not have enough credits for this.")
-      }
+      sproutQuantityElem.value = Number(sproutQuantityElem.value) + 1;
+      updateValues("sproutQuantity", sproutQuantityElem);
+    });
+
+    sproutQuantityElem.addEventListener("change", () => {
+      updateValues("sproutQuantity", sproutQuantityElem);
     });
 
     waterbottle.addEventListener("click", () => {
-      if (packingList.credits >= 2) {
-        packingList.credits -= 2;
-        creditsElem.innerText = packingList.credits;
-        packingList.waterbottleQuantity += 1;
-        waterbottleQuantityElem.value = packingList.waterbottleQuantity;
-        console.log(packingList);
-      } else {
-        alert("You do not have enough credits for this.")
-      }
+      waterbottleQuantityElem.value = Number(waterbottleQuantityElem.value) + 1;
+      updateValues("waterbottleQuantity", waterbottleQuantityElem);
+    });
+
+    waterbottleQuantityElem.addEventListener("change", () => {
+      updateValues("waterbottleQuantity", waterbottleQuantityElem);
     });
 
     launchBtn.addEventListener("click", async () => {
