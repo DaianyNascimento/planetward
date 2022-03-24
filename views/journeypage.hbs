@@ -1,15 +1,15 @@
 <!--parent body tag coming from layout -->
 <img class="background-image" src="../images/951.jpg" />
-
+<nav>
+  <form action="/logout" method="post">
+    <button class="navbar-logout-btn" type="submit">Logout</button>
+  </form>
+</nav>
 <div class="journey-container">
-  <h2> Hi {{ user.username }}! <br> Collect the things you will need!</h2>
-  {{!-- <form action="/logout" method="post">
-    <button class="logout-btn" type="submit">Logout</button>
-  </form> --}}
+  <h2> Hi {{ username }}! <br> Collect the things you will need!</h2>
   <div class="credits-container">
     <p> Your credits: <span id="credits">100</span></p>
   </div>
-
   <div class="packing-list">
     <div class="item-container">
       <img id="item-spacesuit" class="packing-items" src="/images/astronaut.png" />
@@ -41,9 +41,9 @@
     </div>
   </div>
 
-<form action="/launch" method="post">
-  <button class="btn" id="launchBtn" type="submit">Launch!</button>
-</form>
+  <form action="/launch" method="post">
+    <button class="btn" id="launchBtn" type="submit">Launch!</button>
+  </form>
 
 
   <script src="/js/journeypagefunctions.js"></script>

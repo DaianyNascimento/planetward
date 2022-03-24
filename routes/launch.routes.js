@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const mongoose = require("mongoose");
 const ItemModel = require("../models/items.model");
 const UserModel = require("../models/User.model");
 const { requiredLogin } = require("../middleware/authentication");
@@ -14,52 +15,48 @@ router.get("/launch", async (req, res, next) => {
 /* POST launch page */
 router.post("/launch", async (req, res, next) => {
 
-  const userAddedItem = new ItemModel({
-    spacesuitQuantity: req.body.spacesuitQuantity,
-    foodQuantity: req.body.foodQuantity,
-    oxygenQuantity: req.body.oxygenQuantity,
-    fuelQuantity: req.body.fuelQuantity,
-    solarpanelQuantity: req.body.solarpanelQuantity,
-    sproutQuantity: req.body.sproutQuantity,
-    waterbottleQuantity: req.body.waterbottleQuantity,
-    userId: req.session.currentUser._id,
-  });
+  try {
+    const userAddedItem = new ItemModel({
+      spacesuitQuantity: req.body.spacesuitQuantity,
+      foodQuantity: req.body.foodQuantity,
+      oxygenQuantity: req.body.oxygenQuantity,
+      fuelQuantity: req.body.fuelQuantity,
+      solarpanelQuantity: req.body.solarpanelQuantity,
+      sproutQuantity: req.body.sproutQuantity,
+      waterbottleQuantity: req.body.waterbottleQuantity,
+      userId: req.session.currentUser._id,
+    });
 
-  await userAddedItem.save();
+    await userAddedItem.save();
 
-  const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
-  const currentUser = await UserModel.findOneAndUpdate({ userId: req.session.currentUser._id }, { items: currentItem._id }, { new: true });
-  
-  // const responeFromDb = await ItemModel.findOne(currentItem.spacesuitQuantity);
-  // console.log(currentItem.spacesuitQuantity, "<<<<<<" );
-  // console.log(currentUser.items.spacesuitQuantity);
-  // console.log(req.body.spacesuitQuantity, "-----");
-  // console.log(responeFromDb, "-----");
-  console.log(req.body, "this is whole item") 
-  if(req.body.spacesuitQuantity >= 1 
-    && req.body.foodQuantity >= 1
-    && req.body.oxygenQuantity >= 1
-    && req.body.fuelQuantity >= 1
-    && req.body.waterbottleQuantity >= 1
-    ){
-      res.redirect("/success")
+    // JUST GET THE FIRST ITEM FROM DE DB AND POPULATE
+    const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
+    const currentUser = await UserModel.findOneAndUpdate({ userId: req.session.currentUser._id }, { items: currentItem._id }, { new: true }).populate('items');
+    //console.log(currentUser);
+
+    //console.log(req.session.currentUser);
+    //console.log(">>>>>> current user populated: ", currentUser);
+    if (currentItem.spacesuitQuantity >= 1
+      && currentItem.foodQuantity >= 4
+      && currentItem.oxygenQuantity >= 2
+      && currentItem.fuelQuantity >= 3
+      && currentItem.waterbottleQuantity >= 4
+    ) {
+      res.redirect("/success");
     } else {
-      console.log("error from failure")
-      res.redirect("/failure")
+      res.redirect("/failure");
     }
-    console.log(req.body.spacesuitQuantity, "<<<<<<")
+  } catch (err) {
+    res.render("profilepage", { error: "You have already created an item!" });
+  }
 });
-
-
 
 module.exports = router;
 
-  /* need at least :
-    1 spacesuit - 10
-    2 oxygen - 20
-    4 food - 20
-    4 water - 8 
-    3 fuel - 30
-
-    88 
-    */
+/* need at least :
+  1 spacesuit - 10
+  2 oxygen - 20
+  4 food - 20
+  4 water - 8 
+  3 fuel - 30
+  */

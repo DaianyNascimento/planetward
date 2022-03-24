@@ -1,26 +1,25 @@
 <!--parent body tag coming from layout -->
 
-  <img class="background-image" src="/images/946.jpg">
-    <div class="container">
-        <div class="content">
-            <div class="menu">
-                <h1>SIGN UP</h1>
-            </div>
-            <!-- <img class="bg-img" src="/images/2731.jpg" alt=""> --->
-            <div class="signup-form">
-                <form action="/signup" method="post">
-                    <label class="label">USERNAME</label>
-                    <input class="input" name="username" type="text" placeholder="enter username here">
-                    <label class="label">PASSWORD</label>
-                    <input class="input" name="password" type="password" placeholder="enter password here">
-                    <button class="btn" type="submit">SIGN UP</button>
-                </form>
-            </div>
-            <hr>
-            
-            {{#if error}}
-            <h2 class="signup-h2">You already have an account!</h2>
-            <a class="btn" href="/login">GO TO LOGIN</a>
-            {{/if}}
+<img class="background-image" src="/images/946.jpg">
+<div class="container">
+    <div class="content">
+        <div class="menu">
+            <h1>SIGN UP</h1>
         </div>
+        <div class="signup-form">
+            <form action="/signup" method="post">
+                <label class="label">USERNAME</label>
+                <input class="input" name="username" type="text" placeholder="enter username here">
+                <label class="label">PASSWORD</label>
+                <input class="input" name="password" type="password" placeholder="enter password here">
+                <button class="btn" type="submit">SIGN UP</button>
+            </form>
+        </div>
+        <hr>
+
+        {{#if error}}
+        <h2 class="signup-h2">You already have an account!</h2>
+        <a class="btn" href="/login">GO TO LOGIN</a>
+        {{/if}}
     </div>
+</div>
