@@ -8,13 +8,16 @@
 <div class="journey-container">
  
    {{#if combinedUserAndItems}}
-  <form action="/items/{{combinedUserAndItems.items._id}}/edit" method="post">
- 
-    <h2> Hi {{combinedUserAndItems.username}}! <br /> Collect the things you will need!</h2>
+<div>
+  <h1>Hi {{combinedUserAndItems.username}}! </h1>
+   <h2>  Collect the things you will need!</h2>
+    </div>
     <div class="credits-container">
       <p> Initial credits: <span id="">100</span></p>
       <p> Current credits: <span id="credits">{{combinedUserAndItems.items.credits}}</span></p>
     </div>
+
+  <form action="/items/{{combinedUserAndItems.items._id}}/edit" method="post">
     <div class="packing-list">
       <div class="item-container">
         <img
@@ -22,23 +25,22 @@
           class="packing-items"
           src="/images/astronaut.png"
         />
-        <label for="title">Spacesuit:</label>
-
-        <input
+        <label for="title">Spacesuit: 10 credits</label>
+        <input class="input-number"
           type="number"
           name="spacesuitQuantity"
           id="spacesuitQuantity"
           value="{{combinedUserAndItems.items.spacesuitQuantity}}"
-          placeholder="spacesuit quantity"
+          {{!-- placeholder="spacesuit quantity" --}}
           min="0"
         />
 
       </div>
       <div class="item-container">
         <img id="item-food" class="packing-items" src="/images/bar.png" />
-        <label for="title">Food:</label>
+        <label for="title">Food: 5 credits</label>
 
-        <input
+        <input class="input-number"
           type="number"
           name="foodQuantity"
           id="foodQuantity"
@@ -54,9 +56,9 @@
           class="packing-items"
           src="/images/oxygen-tank.png"
         />
-        <label for="title">Oxygen:</label>
+        <label for="title">Oxygen: 10 credits</label>
 
-        <input
+        <input class="input-number"
           type="number"
           name="oxygenQuantity"
           id="oxygenQuantity"
@@ -72,9 +74,9 @@
           class="packing-items"
           src="/images/fuel-station.png"
         />
-        <label for="title">Fuel:</label>
+        <label for="title">Fuel: 10 credits</label>
         
-        <input
+        <input class="input-number"
           type="number"
           name="fuelQuantity"
           id="fuelQuantity"
@@ -90,9 +92,9 @@
           class="packing-items"
           src="/images/solar-panel.png"
         />
-        <label for="title">Solar Panel:</label>
+        <label for="title">Solar Panel: 20 credits</label>
 
-        <input
+        <input class="input-number"
           type="number"
           name="solarpanelQuantity"
           id="solarpanelQuantity"
@@ -104,9 +106,9 @@
       </div>
       <div class="item-container">
         <img id="item-sprout" class="packing-items" src="/images/sprout.png" />
-        <label for="title">Seeds:</label>
+        <label for="title">Seeds: 5 credits</label>
 
-        <input
+        <input class="input-number"
           type="number"
           name="sproutQuantity"
           id="sproutQuantity"
@@ -122,9 +124,9 @@
           class="packing-items"
           src="/images/water-bottle.png"
         />
-        <label for="title">Water bottle:</label>
+        <label for="title">Water bottle: 2 credits</label>
 
-        <input
+        <input class="input-number"
           type="number"
           name="waterbottleQuantity"
           id="waterbottleQuantity"
@@ -135,9 +137,9 @@
 
       </div>
     </div>
-
+<div class="flex-button">
   <button class="btn" id="editBtn" type="submit">Update items!</button>
-
+</div>
   </form>
 
    {{else}}
@@ -154,24 +156,22 @@
           class="packing-items"
           src="/images/astronaut.png"
         />
-        <label for="title">Spacesuit:</label>
-        <input
+        <label for="title">Spacesuit: 10 credits</label>
+        <input class="input-number"
           type="text"
           name="spacesuitQuantity"
           id="spacesuitQuantity"
           value="{{items.spacesuitQuantity}}"
-          placeholder="spacesuit quantity"
         />
       </div>
       <div class="item-container">
         <img id="item-food" class="packing-items" src="/images/bar.png" />
-        <label for="title">Food:</label>
-        <input
+        <label for="title">Food: 5 credits</label>
+        <input class="input-number"
           type="text"
           name="foodQuantity"
           id="foodQuantity"
           value="{{items.foodQuantity}}"
-          placeholder="food quantity"
         />
       </div>
       <div class="item-container">
@@ -180,13 +180,12 @@
           class="packing-items"
           src="/images/oxygen-tank.png"
         />
-        <label for="title">Oxygen:</label>
-        <input
+        <label for="title">Oxygen: 10 credits</label>
+        <input class="input-number"
           type="text"
           name="oxygenQuantity"
           id="oxygenQuantity"
           value="{{items.oxygenQuantity}}"
-          placeholder="oxygen quantity"
         />
       </div>
       <div class="item-container">
@@ -195,13 +194,12 @@
           class="packing-items"
           src="/images/fuel-station.png"
         />
-        <label for="title">Fuel:</label>
-        <input
+        <label for="title">Fuel: 10 credits</label>
+        <input class="input-number"
           type="text"
           name="fuelQuantity"
           id="fuelQuantity"
           value="{{items.fuelQuantity}}"
-          placeholder="fuel quantity"
         />
       </div>
       <div class="item-container">
@@ -210,24 +208,22 @@
           class="packing-items"
           src="/images/solar-panel.png"
         />
-        <label for="title">Solar Panel:</label>
-        <input
+        <label for="title">Solar Panel: 20 credits</label>
+        <input class="input-number"
           type="text"
           name="solarpanelQuantity"
           id="solarpanelQuantity"
           value="{{items.solarpanelQuantity}}"
-          placeholder="solar panel quantity"
         />
       </div>
       <div class="item-container">
         <img id="item-sprout" class="packing-items" src="/images/sprout.png" />
-        <label for="title">Seeds:</label>
-        <input
+        <label for="title">Seeds: 5 credits</label>
+        <input class="input-number"
           type="text"
           name="sproutQuantity"
           id="sproutQuantity"
           value="{{items.sproutQuantity}}"
-          placeholder="sprout quantity"
         />
       </div>
       <div class="item-container">
@@ -236,20 +232,19 @@
           class="packing-items"
           src="/images/water-bottle.png"
         />
-        <label for="title">Water bottle:</label>
-        <input
+        <label for="title">Water bottle: 20 credits</label>
+        <input class="input-number"
           type="text"
           name="waterbottleQuantity"
           id="waterbottleQuantity"
           value="{{items.waterbottleQuantity}}"
-          placeholder="water bottle quantity"
         />
       </div>
     </div>
 
   {{!-- <button class="btn" id="editBtn" type="submit">Update items!</button> --}}
-  <form action="/launch" method="post">
-      <button class="btn" id="launchBtn" type="submit">Launch!</button>
+  <form class="flex-button btn" action="/launch" method="post">
+      <button style="all:unset;" id="launchBtn" type="submit">Launch!</button>
     </form>
     
   </form>
