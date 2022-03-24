@@ -10,7 +10,7 @@
      <div class="profile-content">
         <h1>Your profile</h1>
         <p class="see-items">Your items: </p>
-    <div class="items-container">
+        <div class="items-container">
         <p>Spacesuit quantity: {{currentItem.spacesuitQuantity}}</p>
         <p>Food quantity: {{currentItem.foodQuantity}}</p>
         <p>Oxygen quantity: {{currentItem.oxygenQuantity}}</p>
@@ -31,8 +31,8 @@
 
     
         
-    <form  action="/item/{{currentItem.userId}}/delete" method="post">
-        <button class="profile-btn" type="submit">Delete items</button>
+    <form class="profile-btn" action="/item/{{currentItem.userId}}/delete" method="post">
+        <button style="all:unset;" type="submit">Delete items</button>
     </form>
    
      </div>
