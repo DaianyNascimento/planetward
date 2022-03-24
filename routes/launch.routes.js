@@ -15,6 +15,8 @@ router.get("/launch", async (req, res, next) => {
 /* POST launch page */
 router.post("/launch", async (req, res, next) => {
 
+  const userId = req.session.currentUser._id;
+
   const userAddedItem = new ItemModel({
     spacesuitQuantity: req.body.spacesuitQuantity,
     foodQuantity: req.body.foodQuantity,
@@ -30,26 +32,31 @@ router.post("/launch", async (req, res, next) => {
 
   const currentItem = await ItemModel.findOne({ userId: req.session.currentUser._id });
   const currentUser = await UserModel.findOneAndUpdate({ userId: req.session.currentUser._id }, { items: currentItem._id }, { new: true });
+  await currentUser.populate("items");
+
+  console.log(currentItem, "<<<<<<" );
+  console.log(currentUser, "<<<<<<");
   
+
   // const responeFromDb = await ItemModel.findOne(currentItem.spacesuitQuantity);
-  // console.log(currentItem.spacesuitQuantity, "<<<<<<" );
-  // console.log(currentUser.items.spacesuitQuantity);
   // console.log(req.body.spacesuitQuantity, "-----");
   // console.log(responeFromDb, "-----");
   console.log(req.body, "this is whole item") 
-  if(req.body.spacesuitQuantity >= 1 
-    && req.body.foodQuantity >= 1
-    && req.body.oxygenQuantity >= 1
-    && req.body.fuelQuantity >= 1
-    && req.body.waterbottleQuantity >= 1
-    ){
+  if(currentItem.spacesuitQuantity >= 1
+    && currentItem.foodQuantity >= 1
+    && currentItem.oxygenQuantity >= 1
+    && currentItem.fuelQuantity >= 1
+    && currentItem.waterbottleQuantity >= 1
+    ) {
+      //save if successful
       res.redirect("/success")
     } else {
+      //delete if not successful
       console.log("error from failure")
       res.redirect("/failure")
     }
-    console.log(req.body.spacesuitQuantity, "<<<<<<")
-});
+    await currentUser.items
+  });
 
 
 

@@ -33,15 +33,6 @@ router.get("/profilepage", async (req, res, next) => {
   res.redirect("/profilepage");
 });*/
 
-/* Delete item - Question: Delete journey or delete item? */
-/*router.post('/item/:id/delete', async (req, res, next) => {
-  const itemId = mongoose.Types.ObjectId(req.params.id);
-  console.log("itemId to delete", itemId);
 
-  await Item.findByIdAndDelete(itemId);
-  console.log("Successfully deleted");
-
-  res.redirect("/profilepage");
-});*/
 
 module.exports = router;
