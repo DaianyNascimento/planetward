@@ -17,6 +17,7 @@ router.post("/launch", async (req, res, next) => {
 
   try {
     const userAddedItem = new ItemModel({
+      credits: req.body.credits,
       spacesuitQuantity: req.body.spacesuitQuantity,
       foodQuantity: req.body.foodQuantity,
       oxygenQuantity: req.body.oxygenQuantity,
@@ -47,7 +48,8 @@ router.post("/launch", async (req, res, next) => {
       res.redirect("/failure");
     }
   } catch (err) {
-    res.render("profilepage", { error: "You have already created an item!" });
+    //res.render("profilepage", { error: "You have already created an item!" });
+    res.redirect("/profilepage");
   }
 });
 

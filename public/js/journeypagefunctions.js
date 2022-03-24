@@ -8,8 +8,8 @@ let solarpanelQuantityElem = document.querySelector("#solarpanelQuantity");
 let sproutQuantityElem = document.querySelector("#sproutQuantity");
 let waterbottleQuantityElem = document.querySelector("#waterbottleQuantity");
 
-let credits = 100;
 let packingList = {
+  credits: 100,
   spacesuitQuantity: 0,
   oxygenQuantity: 0,
   foodQuantity: 0,
@@ -42,13 +42,12 @@ document.addEventListener(
     waterbottle: 2 credits,
     */
 
-
     spacesuit.addEventListener("click", () => {
-      if (credits >= 10) {
-        credits -= 10;
-        creditsElem.innerText = credits;
+      if (packingList.credits >= 10) {
+        packingList.credits -= 10;
+        creditsElem.innerText = packingList.credits;
         packingList.spacesuitQuantity += 1;
-        spacesuitQuantityElem.innerText = packingList.spacesuitQuantity;
+        spacesuitQuantityElem.value = packingList.spacesuitQuantity;
         console.log(packingList);
       } else {
         alert("You do not have enough credits for this.")
@@ -56,11 +55,11 @@ document.addEventListener(
     });
 
     oxygen.addEventListener("click", () => {
-      if (credits >= 10) {
-        credits -= 10;
-        creditsElem.innerText = credits;
+      if (packingList.credits >= 10) {
+        packingList.credits -= 10;
+        creditsElem.innerText = packingList.credits;
         packingList.oxygenQuantity += 1;
-        oxygenQuantityElem.innerText = packingList.oxygenQuantity;
+        oxygenQuantityElem.value = packingList.oxygenQuantity;
         console.log(packingList);
       } else {
         alert("You do not have enough credits for this.")
@@ -68,11 +67,11 @@ document.addEventListener(
     });
 
     food.addEventListener("click", () => {
-      if (credits >= 5) {
-        credits -= 5;
-        creditsElem.innerText = credits;
+      if (packingList.credits >= 5) {
+        packingList.credits -= 5;
+        creditsElem.innerText = packingList.credits;
         packingList.foodQuantity += 1;
-        foodQuantityElem.innerText = packingList.foodQuantity;
+        foodQuantityElem.value = packingList.foodQuantity;
         console.log(packingList);
       } else {
         alert("You do not have enough credits for this.")
@@ -80,11 +79,11 @@ document.addEventListener(
     });
 
     fuel.addEventListener("click", () => {
-      if (credits >= 10) {
-        credits -= 10;
-        creditsElem.innerText = credits;
+      if (packingList.credits >= 10) {
+        packingList.credits -= 10;
+        creditsElem.innerText = packingList.credits;
         packingList.fuelQuantity += 1;
-        fuelQuantityElem.innerText = packingList.fuelQuantity;
+        fuelQuantityElem.value = packingList.fuelQuantity;
         console.log(packingList);
       } else {
         alert("You do not have enough credits for this.")
@@ -92,11 +91,11 @@ document.addEventListener(
     });
 
     solarpanel.addEventListener("click", () => {
-      if (credits >= 20) {
-        credits -= 20;
-        creditsElem.innerText = credits;
+      if (packingList.credits >= 20) {
+        packingList.credits -= 20;
+        creditsElem.innerText = packingList.credits;
         packingList.solarpanelQuantity += 1;
-        solarpanelQuantityElem.innerText = packingList.solarpanelQuantity;
+        solarpanelQuantityElem.value = packingList.solarpanelQuantity;
         console.log(packingList);
       } else {
         alert("You do not have enough credits for this.")
@@ -104,11 +103,11 @@ document.addEventListener(
     });
 
     sprout.addEventListener("click", () => {
-      if (credits >= 5) {
-        credits -= 5;
-        creditsElem.innerText = credits;
+      if (packingList.credits >= 5) {
+        packingList.credits -= 5;
+        creditsElem.innerText = packingList.credits;
         packingList.sproutQuantity += 1;
-        sproutQuantityElem.innerText = packingList.sproutQuantity;
+        sproutQuantityElem.value = packingList.sproutQuantity;
         console.log(packingList);
       } else {
         alert("You do not have enough credits for this.")
@@ -116,11 +115,11 @@ document.addEventListener(
     });
 
     waterbottle.addEventListener("click", () => {
-      if (credits >= 2) {
-        credits -= 2;
-        creditsElem.innerText = credits;
+      if (packingList.credits >= 2) {
+        packingList.credits -= 2;
+        creditsElem.innerText = packingList.credits;
         packingList.waterbottleQuantity += 1;
-        waterbottleQuantityElem.innerText = packingList.waterbottleQuantity;
+        waterbottleQuantityElem.value = packingList.waterbottleQuantity;
         console.log(packingList);
       } else {
         alert("You do not have enough credits for this.")
