@@ -1,65 +1,241 @@
 <!--parent body tag coming from layout -->
-<img class="background-image" src="../images/951.jpg" />
+<img class="background-image" src="/images/951.jpg" />
 <nav>
   <form action="/logout" method="post">
     <button class="navbar-logout-btn" type="submit">Logout</button>
   </form>
 </nav>
 <div class="journey-container">
-  <h2> Hi {{ username }}! <br> Collect the things you will need!</h2>
-  <form action="/items/{{items._id}}/edit" method="post">
+ 
+   {{#if combinedUserAndItems}}
+  <form action="/items/{{combinedUserAndItems.items._id}}/edit" method="post">
+ 
+    <h2> Hi {{combinedUserAndItems.username}}! <br /> Collect the things you will need!</h2>
+    <div class="credits-container">
+      <p> Initial credits: <span id="">100</span></p>
+      <p> Current credits: <span id="credits">{{combinedUserAndItems.items.credits}}</span></p>
+    </div>
+    <div class="packing-list">
+      <div class="item-container">
+        <img
+          id="item-spacesuit"
+          class="packing-items"
+          src="/images/astronaut.png"
+        />
+        <label for="title">Spacesuit:</label>
+        <input
+          type="text"
+          name="spacesuitQuantity"
+          id="spacesuitQuantity"
+          value="{{combinedUserAndItems.items.spacesuitQuantity}}"
+          placeholder="spacesuit quantity"
+        />
+      </div>
+      <div class="item-container">
+        <img id="item-food" class="packing-items" src="/images/bar.png" />
+        <label for="title">Food:</label>
+        <input
+          type="text"
+          name="foodQuantity"
+          id="foodQuantity"
+          value="{{combinedUserAndItems.items.foodQuantity}}"
+          placeholder="food quantity"
+        />
+      </div>
+      <div class="item-container">
+        <img
+          id="item-oxygen"
+          class="packing-items"
+          src="/images/oxygen-tank.png"
+        />
+        <label for="title">Oxygen:</label>
+        <input
+          type="text"
+          name="oxygenQuantity"
+          id="oxygenQuantity"
+          value="{{combinedUserAndItems.items.oxygenQuantity}}"
+          placeholder="oxygen quantity"
+        />
+      </div>
+      <div class="item-container">
+        <img
+          id="item-fuel-station"
+          class="packing-items"
+          src="/images/fuel-station.png"
+        />
+        <label for="title">Fuel:</label>
+        <input
+          type="text"
+          name="fuelQuantity"
+          id="fuelQuantity"
+          value="{{combinedUserAndItems.items.fuelQuantity}}"
+          placeholder="fuel quantity"
+        />
+      </div>
+      <div class="item-container">
+        <img
+          id="item-solar-panel"
+          class="packing-items"
+          src="/images/solar-panel.png"
+        />
+        <label for="title">Solar Panel:</label>
+        <input
+          type="text"
+          name="solarpanelQuantity"
+          id="solarpanelQuantity"
+          value="{{combinedUserAndItems.items.solarpanelQuantity}}"
+          placeholder="solar panel quantity"
+        />
+      </div>
+      <div class="item-container">
+        <img id="item-sprout" class="packing-items" src="/images/sprout.png" />
+        <label for="title">Seeds:</label>
+        <input
+          type="text"
+          name="sproutQuantity"
+          id="sproutQuantity"
+          value="{{combinedUserAndItems.items.sproutQuantity}}"
+          placeholder="sprout quantity"
+        />
+      </div>
+      <div class="item-container">
+        <img
+          id="item-water-bottle"
+          class="packing-items"
+          src="/images/water-bottle.png"
+        />
+        <label for="title">Water bottle:</label>
+        <input
+          type="text"
+          name="waterbottleQuantity"
+          id="waterbottleQuantity"
+          value="{{combinedUserAndItems.items.waterbottleQuantity}}"
+          placeholder="water bottle quantity"
+        />
+      </div>
+    </div>
+
+  <button class="btn" id="editBtn" type="submit">Update items!</button>
+
+  </form>
+
+   {{else}}
+   <form action="/items/{{items._id}}/edit" method="post"></form>
+   <h2> Hi {{username}}! <br /> Collect the things you will need!</h2>
     <div class="credits-container">
       <p> Initial credits: <span id="">100</span></p>
       <p> Current credits: <span id="credits">{{items.credits}}</span></p>
     </div>
     <div class="packing-list">
       <div class="item-container">
-        <img id="item-spacesuit" class="packing-items" src="/images/astronaut.png" />
+        <img
+          id="item-spacesuit"
+          class="packing-items"
+          src="/images/astronaut.png"
+        />
         <label for="title">Spacesuit:</label>
-        <input type="text" name="spacesuitQuantity" id="spacesuitQuantity" value="{{items.spacesuitQuantity}}"
-          placeholder="spacesuit quantity" />
+        <input
+          type="text"
+          name="spacesuitQuantity"
+          id="spacesuitQuantity"
+          value="{{items.spacesuitQuantity}}"
+          placeholder="spacesuit quantity"
+        />
       </div>
       <div class="item-container">
         <img id="item-food" class="packing-items" src="/images/bar.png" />
         <label for="title">Food:</label>
-        <input type="text" name="foodQuantity" id="foodQuantity" value="{{items.foodQuantity}}"
-          placeholder="food quantity" />
+        <input
+          type="text"
+          name="foodQuantity"
+          id="foodQuantity"
+          value="{{items.foodQuantity}}"
+          placeholder="food quantity"
+        />
       </div>
       <div class="item-container">
-        <img id="item-oxygen" class="packing-items" src="/images/oxygen-tank.png" />
+        <img
+          id="item-oxygen"
+          class="packing-items"
+          src="/images/oxygen-tank.png"
+        />
         <label for="title">Oxygen:</label>
-        <input type="text" name="oxygenQuantity" id="oxygenQuantity" value="{{items.oxygenQuantity}}"
-          placeholder="oxygen quantity" />
+        <input
+          type="text"
+          name="oxygenQuantity"
+          id="oxygenQuantity"
+          value="{{items.oxygenQuantity}}"
+          placeholder="oxygen quantity"
+        />
       </div>
       <div class="item-container">
-        <img id="item-fuel-station" class="packing-items" src="/images/fuel-station.png" />
+        <img
+          id="item-fuel-station"
+          class="packing-items"
+          src="/images/fuel-station.png"
+        />
         <label for="title">Fuel:</label>
-        <input type="text" name="fuelQuantity" id="fuelQuantity" value="{{items.fuelQuantity}}"
-          placeholder="fuel quantity" />
+        <input
+          type="text"
+          name="fuelQuantity"
+          id="fuelQuantity"
+          value="{{items.fuelQuantity}}"
+          placeholder="fuel quantity"
+        />
       </div>
       <div class="item-container">
-        <img id="item-solar-panel" class="packing-items" src="/images/solar-panel.png" />
+        <img
+          id="item-solar-panel"
+          class="packing-items"
+          src="/images/solar-panel.png"
+        />
         <label for="title">Solar Panel:</label>
-        <input type="text" name="solarpanelQuantity" id="solarpanelQuantity" value="{{items.solarpanelQuantity}}"
-          placeholder="solar panel quantity" />
+        <input
+          type="text"
+          name="solarpanelQuantity"
+          id="solarpanelQuantity"
+          value="{{items.solarpanelQuantity}}"
+          placeholder="solar panel quantity"
+        />
       </div>
       <div class="item-container">
         <img id="item-sprout" class="packing-items" src="/images/sprout.png" />
         <label for="title">Seeds:</label>
-        <input type="text" name="sproutQuantity" id="sproutQuantity" value="{{items.sproutQuantity}}"
-          placeholder="sprout quantity" />
+        <input
+          type="text"
+          name="sproutQuantity"
+          id="sproutQuantity"
+          value="{{items.sproutQuantity}}"
+          placeholder="sprout quantity"
+        />
       </div>
       <div class="item-container">
-        <img id="item-water-bottle" class="packing-items" src="/images/water-bottle.png" />
+        <img
+          id="item-water-bottle"
+          class="packing-items"
+          src="/images/water-bottle.png"
+        />
         <label for="title">Water bottle:</label>
-        <input type="text" name="waterbottleQuantity" id="waterbottleQuantity" value="{{items.waterbottleQuantity}}"
-          placeholder="water bottle quantity" />
+        <input
+          type="text"
+          name="waterbottleQuantity"
+          id="waterbottleQuantity"
+          value="{{items.waterbottleQuantity}}"
+          placeholder="water bottle quantity"
+        />
       </div>
     </div>
-    <button class="btn" id="editBtn" type="submit">Update items!</button>
-  </form>
+
+  {{!-- <button class="btn" id="editBtn" type="submit">Update items!</button> --}}
   <form action="/launch" method="post">
-    <button class="btn" id="launchBtn" type="submit">Launch!</button>
+      <button class="btn" id="launchBtn" type="submit">Launch!</button>
+    </form>
+    
   </form>
+  {{/if}}
+
+
+
+
 </div>
 <script src="/js/journeypagefunctions.js"></script>

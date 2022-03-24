@@ -7,22 +7,35 @@
     </form>
 </nav>
 <div class="container">
-    <!-- <div class="profile-content"> --->
-    <div>
+     <div class="profile-content">
         <h1>Your profile</h1>
-        <a class="profile-btn" href="/journeypage">Start your journey</a>
-        <p class="profile-btn">See your items: </p>
+        <p class="see-items">Your items: </p>
+    <div class="items-container">
         <p>Spacesuit quantity: {{currentItem.spacesuitQuantity}}</p>
         <p>Food quantity: {{currentItem.foodQuantity}}</p>
         <p>Oxygen quantity: {{currentItem.oxygenQuantity}}</p>
         <p>Fuel quantity: {{currentItem.fuelQuantity}}</p>
         <p>Solar panel quantity: {{currentItem.solarpanelQuantity}}</p>
-        <p>Sprout quantity: {{currentItem.sproutQuantity}}</p>
+        <p>Seed quantity: {{currentItem.sproutQuantity}}</p>
         <p>Water Bottle: {{currentItem.waterbottleQuantity}}</p>
-        <a class="profile-btn" href="/items/{{currentItem._id}}/edit">Edit items</a>
-        <form action="/item/{{currentItem.userId}}/delete" method="post">
-            <button class="profile-btn" type="submit">Delete items</button>
-        </form>
+    </div>
+
+
+<div class="button-container">
+
+{{#if currentItem}}
+    <a class="profile-btn" href="/items/{{currentItem._id}}/edit">Edit items</a>
+{{else}}
+    <a class="profile-btn" id="start-journey-button" href="/journeypage">Start your journey</a>
+{{/if}}
+
+    
+        
+    <form  action="/item/{{currentItem.userId}}/delete" method="post">
+        <button class="profile-btn" type="submit">Delete items</button>
+    </form>
+   
+     </div>
     </div>
 
     {{#if error}}
