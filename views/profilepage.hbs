@@ -7,7 +7,8 @@
     </form>
 </nav>
 <div class="container">
-    <div class="">
+    <!-- <div class="profile-content"> --->
+    <div>
         <h1>Your profile</h1>
         <a class="profile-btn" href="/journeypage">Start your journey</a>
         <p class="profile-btn">See your items: </p>
@@ -19,7 +20,7 @@
         <p>Sprout quantity: {{currentItem.sproutQuantity}}</p>
         <p>Water Bottle: {{currentItem.waterbottleQuantity}}</p>
         <a class="profile-btn" href="/items/{{currentItem._id}}/edit">Edit items</a>
-        <form action="/item/{{currentItem._id}}/delete" method="post">
+        <form action="/item/{{currentItem.userId}}/delete" method="post">
             <button class="profile-btn" type="submit">Delete items</button>
         </form>
     </div>

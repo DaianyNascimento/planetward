@@ -2,6 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const packinglistSchema = new Schema(
   {
+    credits: {
+      type: Number,
+      unique: true,
+    },
     spacesuitQuantity: {
       type: Number,
       unique: true,
