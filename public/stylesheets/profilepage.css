@@ -4,6 +4,39 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  color: white;
+  text-shadow: 1px 1px 0px #000;
+}
+
+.see-items {
+  margin-bottom: 5%;
+  font-size: 20px;
+  text-shadow: 1px 1px 0px #000;
+}
+
+.items-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 40%;
+  justify-content: center;
+}
+
+.items-container p {
+  padding: 5px;
+  margin: 8px;
+  background:rgba(75, 96, 121, 0.7);
+  box-shadow: 1px 2px 10px 1px rgb(240, 238, 239);
+  border-radius: 20%;
+}
+
+.button-container {
+  width: 100%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .profile-btn {
@@ -21,6 +54,7 @@
   width: 60%;
   margin: 3%;
   padding: 1%;
+  text-shadow: 1px 1px 0px #000;
 }
 
 .profile-btn:hover {

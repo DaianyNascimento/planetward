@@ -6,16 +6,6 @@ const requiredLogin = (req, res, next) => {
 
     next();
 };
-
-
-// function requiredLogin(req, res, next) {
-//     if (req.session.currentUser) {
-//       next();
-//       return;
-//     } else {
-//       res.redirect("/login");
-//     }
-//   }
   
 
 const requiredLogout = (req, res, next) => {
