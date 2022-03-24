@@ -23,24 +23,30 @@
           src="/images/astronaut.png"
         />
         <label for="title">Spacesuit:</label>
+
         <input
-          type="text"
+          type="number"
           name="spacesuitQuantity"
           id="spacesuitQuantity"
           value="{{combinedUserAndItems.items.spacesuitQuantity}}"
           placeholder="spacesuit quantity"
+          min="0"
         />
+
       </div>
       <div class="item-container">
         <img id="item-food" class="packing-items" src="/images/bar.png" />
         <label for="title">Food:</label>
+
         <input
-          type="text"
+          type="number"
           name="foodQuantity"
           id="foodQuantity"
           value="{{combinedUserAndItems.items.foodQuantity}}"
           placeholder="food quantity"
+          min="0"
         />
+
       </div>
       <div class="item-container">
         <img
@@ -49,13 +55,16 @@
           src="/images/oxygen-tank.png"
         />
         <label for="title">Oxygen:</label>
+
         <input
-          type="text"
+          type="number"
           name="oxygenQuantity"
           id="oxygenQuantity"
           value="{{combinedUserAndItems.items.oxygenQuantity}}"
           placeholder="oxygen quantity"
+          min="0"
         />
+
       </div>
       <div class="item-container">
         <img
@@ -64,13 +73,16 @@
           src="/images/fuel-station.png"
         />
         <label for="title">Fuel:</label>
+        
         <input
-          type="text"
+          type="number"
           name="fuelQuantity"
           id="fuelQuantity"
           value="{{combinedUserAndItems.items.fuelQuantity}}"
           placeholder="fuel quantity"
+          min="0"
         />
+
       </div>
       <div class="item-container">
         <img
@@ -79,24 +91,30 @@
           src="/images/solar-panel.png"
         />
         <label for="title">Solar Panel:</label>
+
         <input
-          type="text"
+          type="number"
           name="solarpanelQuantity"
           id="solarpanelQuantity"
           value="{{combinedUserAndItems.items.solarpanelQuantity}}"
           placeholder="solar panel quantity"
+          min="0" 
         />
+
       </div>
       <div class="item-container">
         <img id="item-sprout" class="packing-items" src="/images/sprout.png" />
         <label for="title">Seeds:</label>
+
         <input
-          type="text"
+          type="number"
           name="sproutQuantity"
           id="sproutQuantity"
           value="{{combinedUserAndItems.items.sproutQuantity}}"
           placeholder="sprout quantity"
+          min="0"
         />
+
       </div>
       <div class="item-container">
         <img
@@ -105,13 +123,16 @@
           src="/images/water-bottle.png"
         />
         <label for="title">Water bottle:</label>
+
         <input
-          type="text"
+          type="number"
           name="waterbottleQuantity"
           id="waterbottleQuantity"
           value="{{combinedUserAndItems.items.waterbottleQuantity}}"
           placeholder="water bottle quantity"
+          min="0"
         />
+
       </div>
     </div>
 
