@@ -152,7 +152,7 @@ User journey:
 
 [Repository](https://github.com/DaianyNascimento/planetward)
 
-[Deploy](http://heroku.com)
+[Deploy](https://planetward.herokuapp.com/)
 
 ### Slides
 
